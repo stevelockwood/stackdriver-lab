@@ -10,3 +10,8 @@ gcloud compute instances create linux-server-$DEVSHELL_PROJECT_ID --service-acco
 gcloud compute instances create windows-server-$DEVSHELL_PROJECT_ID --service-account windows-servers@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --image-project windows-cloud --image windows-server-1803-dc-core-v20180508 --zone us-central1-a --metadata-from-file windows-startup-script-ps1=windows_startup.ps1
 gcloud compute instances add-tags linux-server-$DEVSHELL_PROJECT_ID --zone us-central1-a --tags http-server
 gcloud compute firewall-rules create http-server --allow tcp:80 --target-tags http-server
+gcloud services enable compute.googleapis.com  
+gcloud service enable container.googleapis.com 
+gcloud service enable sqladmin.googleapis.com
+gcloud enable sql-component.googleapis.com
+gcloud enable pubsub.googleapis.com
