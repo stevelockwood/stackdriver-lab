@@ -19,13 +19,12 @@ gcloud compute instances add-tags linux-server-$DEVSHELL_PROJECT_ID --zone us-ce
 
 # open firewall for linux server
 gcloud compute firewall-rules create http-server --allow tcp:80 --target-tags http-server
-gcloud services enable sqladmin.googleapis.com
 
 # set up gke
-nohup . ./gke.sh &
+nohup ./gke.sh &
 
 # set up cloud-sql
-nohup . ./sql.sh &
+nohup ./sql.sh &
 
 # set up pub-sub
-nohup . ./pubsub.sh &
+nohup ./pubsub.sh &
