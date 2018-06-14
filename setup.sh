@@ -1,7 +1,7 @@
 #!/bin/bash
 
-gcloud iam service-accounts create linux-servers
-gcloud iam service-accounts create windows-servers
+gcloud iam service-accounts create linux-servers --display-name linux-servers
+gcloud iam service-accounts create windows-servers --display-name windows-servers
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:linux-servers@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role='roles/logging.logWriter'
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:linux-servers@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role='roles/monitoring.metricWriter'
 gcloud projects add-iam-policy-binding $DEVSHELL_PROJECT_ID --member=serviceAccount:windows-servers@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com --role='roles/logging.logWriter'
