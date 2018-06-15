@@ -6,13 +6,13 @@
 # get apache ip
 
 # generate apache 200s
-watch curl http://apacheip
+nohup watch curl http://apacheip &
 
 # generate apache 404s
-watch curl http://apacheip/missing.html
+nohup watch curl http://apacheip/missing.html &
 
 # generate apache 403s
-watch curl http://apacheip/secured.html
+nohup watch curl http://apacheip/secured.html &
 
 # generate nginx 200s
 watch curl http://apacheip
