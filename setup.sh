@@ -23,9 +23,6 @@ gcloud compute firewall-rules create http-server --allow tcp:80 --target-tags ht
 # set up gke
 nohup ./gke.sh &
 
-# set up cloud-sql
-nohup ./sql.sh &
-
 # set up pub-sub
 nohup ./pubsub.sh &
 

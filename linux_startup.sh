@@ -18,6 +18,7 @@
     cd /stackdriver-lab
 
     # update apache config
+    cp /var/www/html/index.html /var/www/html/secure.html
     cp apache2.conf /etc/apache2/apache2.conf
     /etc/init.d/apache2 reload
 
