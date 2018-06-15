@@ -13,7 +13,11 @@ nohup watch curl http://$APACHE_IP/missing.html &
 nohup watch curl http://$APACHE_IP/secure.html &
 
 # get load balancer ip
-export GKE_IP=$(gcloud compute forwarding-rules list --global --format json | jq -r .[0].IPAddress)
+GKE_IP=""
+while [ $GKE_IP == "" ]; do
+  export GKE_IP=$(gcloud compute forwarding-rules list --global --format json | jq -r .[0].IPAddress)
+  sleep 2
+done
 
 # generate nginx 200s
 nohup watch curl http://$GKE_IP/ &
@@ -23,3 +27,6 @@ nohup watch curl http://$GKE_IP/missing.html &
 
 # generate pubsub activity
 nohup watch -n 0.5 gcloud pubsub topics publish demo-topic --message "demo" &
+
+sleep 3
+echo 'Activity underway!'
