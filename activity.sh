@@ -13,10 +13,10 @@ nohup watch curl http://$APACHE_IP/missing.html &
 nohup watch curl http://$APACHE_IP/secure.html &
 
 # get load balancer ip
-GKE_IP=""
-while [ $GKE_IP == "" ]; do
-  export GKE_IP=$(gcloud compute forwarding-rules list --global --format json | jq -r .[0].IPAddress)
+GKE_IP="null"
+while [ $GKE_IP == "null" ]; do
   echo 'waiting for Load Balancer'
+  export GKE_IP=$(gcloud compute forwarding-rules list --global --format json | jq -r .[0].IPAddress)
   sleep 5
 done
 
