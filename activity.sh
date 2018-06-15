@@ -16,7 +16,8 @@ nohup watch curl http://$APACHE_IP/secure.html &
 GKE_IP=""
 while [ $GKE_IP == "" ]; do
   export GKE_IP=$(gcloud compute forwarding-rules list --global --format json | jq -r .[0].IPAddress)
-  sleep 2
+  echo 'waiting for Load Balancer'
+  sleep 5
 done
 
 # generate nginx 200s
