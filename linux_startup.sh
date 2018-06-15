@@ -2,7 +2,7 @@
   if [ ! -f /initialized.txt ]; then
     # install apache, git
     apt-get update
-    apt-get install -y apache2, git
+    apt-get install -y apache2 git
 
     # install logging agent
     curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
