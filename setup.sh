@@ -29,4 +29,5 @@ nohup ./sql.sh &
 # set up pub-sub
 nohup ./pubsub.sh &
 
+sleep 3
 echo "done!"
